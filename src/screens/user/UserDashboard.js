@@ -17,6 +17,10 @@ const UserDashboard = ({ navigation }) => {
 
   const handleLogout = async () => {
     await logout();
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
   };
 
   const getGoalDisplay = (goal) => {
@@ -191,11 +195,14 @@ const styles = StyleSheet.create({
   streakCard: {
     marginHorizontal: 20,
     marginBottom: 20,
-    backgroundColor: 'linear-gradient(135deg, #FF9500 0%, #FF6B00 100%)',
+    backgroundColor: '#FFF3E0',
+    borderWidth: 2,
+    borderColor: '#FF9500',
   },
   streakContent: {
     flexDirection: 'row',
     alignItems: 'center',
+    padding: 20,
   },
   streakText: {
     marginLeft: 15,
@@ -228,6 +235,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: 20,
     marginBottom: 20,
+    justifyContent: 'space-between',
   },
   actionsGrid: {
     flexDirection: 'row',

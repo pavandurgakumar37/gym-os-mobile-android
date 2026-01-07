@@ -20,6 +20,10 @@ const ITDashboard = ({ navigation }) => {
 
   const handleLogout = async () => {
     await logout();
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
   };
 
   const getUserById = (userId) => {
@@ -98,13 +102,13 @@ const ITDashboard = ({ navigation }) => {
           title="View All Bugs"
           icon="bug"
           color="#FF3B30"
-          onPress={() => navigation.navigate('BugTracker')}
+          onPress={() => navigation.navigate('Bugs')}
         />
         <ActionButton
           title="Manage Users"
           icon="people"
           color="#007AFF"
-          onPress={() => navigation.navigate('UserManagement')}
+          onPress={() => navigation.navigate('Users')}
         />
         <ActionButton
           title="Report Bug"
@@ -176,6 +180,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: 20,
     marginBottom: 20,
+    justifyContent: 'space-between',
   },
   actionsGrid: {
     flexDirection: 'row',

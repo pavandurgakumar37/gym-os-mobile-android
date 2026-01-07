@@ -26,6 +26,10 @@ const AdminDashboard = ({ navigation }) => {
 
   const handleLogout = async () => {
     await logout();
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
   };
 
   const getActivityIcon = (type) => {
@@ -100,19 +104,19 @@ const AdminDashboard = ({ navigation }) => {
           title="Manage Users"
           icon="people"
           color="#007AFF"
-          onPress={() => navigation.navigate('UserManagement')}
+          onPress={() => navigation.navigate('Users')}
         />
         <ActionButton
           title="View Orders"
           icon="cart"
           color="#FF9500"
-          onPress={() => navigation.navigate('OrderManagement')}
+          onPress={() => navigation.navigate('Orders')}
         />
         <ActionButton
           title="Bug Tracker"
           icon="bug"
           color="#FF3B30"
-          onPress={() => navigation.navigate('BugTracker')}
+          onPress={() => navigation.navigate('Bugs')}
         />
       </View>
 
@@ -171,6 +175,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingHorizontal: 20,
     marginBottom: 20,
+    justifyContent: 'space-between',
   },
   actionsGrid: {
     flexDirection: 'row',

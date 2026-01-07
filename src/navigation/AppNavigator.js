@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme } from '@react-navigation/native';
@@ -12,12 +12,8 @@ import ITStackNavigator from './ITStackNavigator';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  const { user, loading, checkAuth } = useAuth();
+  const { user, loading } = useAuth();
   const { colors } = useTheme();
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
 
   if (loading) {
     return (
