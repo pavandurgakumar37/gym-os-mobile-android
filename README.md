@@ -1,327 +1,273 @@
-# GymOS - Gym Management System Mobile App
+# Gym OS Mobile Android
 
-A comprehensive React Native mobile application for gym management, supporting both iOS and Android platforms. This app provides a complete solution for managing gym members, equipment, workouts, payments, and reports.
+A comprehensive mobile fitness management application built with React Native and Expo, designed to help users track workouts, manage nutrition, monitor progress, and shop for fitness products. The app features role-based access control for administrators, regular users, and IT support staff.
 
-## Features
+## 📱 Features
 
-### 🏋️ Core Features
-- **User Authentication** - Secure login and registration system
-- **Member Management** - Add, view, and manage gym members
-- **Equipment Tracking** - Monitor gym equipment status and maintenance
-- **Workout Plans** - Create and manage workout routines
-- **Payment Processing** - Track membership payments and transactions
-- **Analytics & Reports** - Comprehensive dashboard with statistics and insights
+### For Users
+- **Dashboard**: Personalized overview with fitness stats, streak tracking, and quick access to all features
+- **Workout Management**: Access to 5 workout levels (Beginner to God-Level) with detailed exercise routines
+- **Meal Planning**: Customized meal plans based on fitness goals (Fat Loss, Muscle Building, Body Recomposition)
+- **Progress Tracking**: Monitor weight history, body measurements, and workout completion history
+- **E-Commerce**: Browse and purchase fitness apparel, supplements, equipment, and tools
+- **Product Details**: View detailed product information including sizes, colors, and nutritional data
 
-### 📱 Mobile Features
-- Cross-platform support (iOS & Android)
-- Modern, intuitive UI design
-- Real-time data synchronization
-- Offline capability support
-- Push notifications (ready for implementation)
+### For Administrators
+- **Admin Dashboard**: Overview of system statistics and quick actions
+- **User Management**: View, search, and manage all user accounts
+- **Order Management**: Track and manage all orders with status updates
 
-## Tech Stack
+### For IT Support
+- **IT Dashboard**: Overview of bug tracking statistics
+- **Bug Tracker**: View, filter, and manage reported bugs
+- **Bug Details**: Detailed view of individual bugs with severity and status tracking
 
-### Frontend (Mobile App)
-- **React Native 0.72.6** - Cross-platform mobile framework
-- **React Navigation** - Navigation and routing
-- **Axios** - HTTP client for API requests
-- **Async Storage** - Local data persistence
-- **React Native Vector Icons** - Icon library
-- **React Native Chart Kit** - Data visualization
+## 🛠️ Tech Stack
 
-### Backend (API Server)
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM for MongoDB
-- **JWT** - Authentication
-- **Bcrypt** - Password hashing
+- **Framework**: React Native 0.73.6
+- **Platform**: Expo SDK 50.0.0
+- **Navigation**: React Navigation 6.x
+  - Stack Navigator
+  - Bottom Tabs Navigator
+- **State Management**: React Context API (AuthContext)
+- **Data Persistence**: AsyncStorage
+- **UI Components**:
+  - React Native Gesture Handler
+  - React Native Reanimated
+  - React Native Safe Area Context
+  - React Native Screens
+- **Styling**: React Native StyleSheet with custom theme
 
-## Project Structure
-
-```
-gym-os-mobile/
-├── android/                 # Android native code
-├── ios/                    # iOS native code
-├── src/
-│   ├── screens/
-│   │   ├── auth/           # Authentication screens
-│   │   ├── dashboard/      # Dashboard screen
-│   │   ├── members/        # Member management screens
-│   │   ├── equipment/      # Equipment management screens
-│   │   ├── workouts/       # Workout screens
-│   │   ├── payments/       # Payment screens
-│   │   ├── reports/        # Reports screen
-│   │   └── profile/        # Profile screen
-│   └── services/
-│       └── api.js          # API service configuration
-├── backend/
-│   ├── models/             # Database models
-│   ├── routes/             # API routes
-│   ├── server.js           # Server entry point
-│   └── package.json       # Backend dependencies
-├── App.js                 # Main app component
-├── package.json           # Frontend dependencies
-└── README.md             # This file
-```
-
-## Installation & Setup
+## 📦 Installation
 
 ### Prerequisites
-
 - Node.js (v16 or higher)
 - npm or yarn
-- MongoDB (local or cloud instance)
-- React Native CLI
+- Expo CLI (`npm install -g expo-cli`)
 - Android Studio (for Android development)
-- Xcode (for iOS development, macOS only)
+- Android device or emulator with API 21+
 
-### 1. Clone the Repository
+### Setup Instructions
 
-```bash
-git clone <repository-url>
-cd gym-os-mobile
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd gym-os-mobile-android
+   ```
 
-### 2. Install Frontend Dependencies
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-### 3. Install Backend Dependencies
+4. **Run on Android device/emulator**
+   - Option 1: Using Expo Go app
+     ```bash
+     npm run android
+     ```
+   - Option 2: Scan QR code from Expo DevTools
+     - Open Expo Go app on your Android device
+     - Scan the QR code displayed in the terminal
 
-```bash
-cd backend
-npm install
-```
+## 🚀 How to Run on Android Using Expo Go
 
-### 4. Environment Configuration
-
-Create a `.env` file in the `backend` directory:
-
-```bash
-cd backend
-cp .env.example .env
-```
-
-Edit the `.env` file with your configuration:
-
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/gym-os
-JWT_SECRET=your-super-secret-jwt-key
-```
-
-### 5. Start MongoDB
-
-Make sure MongoDB is running on your system:
-
-```bash
-# Using MongoDB locally
-mongod
-
-# Or using MongoDB Atlas (cloud)
-# Update MONGODB_URI in .env with your connection string
-```
-
-### 6. Start the Backend Server
-
-```bash
-cd backend
-npm start
-```
-
-The backend will run on `http://localhost:5000`
-
-### 7. Update API URL in Mobile App
-
-Edit `src/services/api.js` and update the API base URL:
-
-```javascript
-const API_BASE_URL = 'http://YOUR_BACKEND_IP:5000/api';
-```
-
-For Android emulator, use: `http://10.0.2.2:5000/api`
-For iOS simulator, use: `http://localhost:5000/api`
-
-### 8. Run the Mobile App
-
-#### For Android:
-
+### Method 1: Automatic Launch
 ```bash
 npm run android
 ```
+This command will automatically launch the Expo development server and attempt to open the app on your connected Android device or emulator.
 
-#### For iOS (macOS only):
+### Method 2: Manual QR Code Scan
+1. Start the development server:
+   ```bash
+   npm start
+   ```
+2. Open Expo Go app on your Android device
+3. Tap "Scan QR Code"
+4. Scan the QR code displayed in your terminal or browser at http://localhost:19002
 
-```bash
-cd ios
-pod install
-cd ..
-npm run ios
+### Method 3: Using Expo DevTools
+1. Start the development server:
+   ```bash
+   npm start
+   ```
+2. Press `w` in the terminal to open Expo DevTools in your browser
+3. Click "Run on Android device/emulator"
+4. Or scan the QR code with Expo Go
+
+## 🔑 Demo Account Credentials
+
+### Administrator
+- **Username**: `admin`
+- **Password**: `admin123`
+- **Email**: `admin@gymos.com`
+- **Access**: Full admin privileges including user and order management
+
+### Regular Users
+#### User 1 (Fat Loss Goal)
+- **Username**: `john`
+- **Password**: `user123`
+- **Email**: `john@gymos.com`
+- **Goal**: Fat Loss
+- **Current Level**: Beginner
+- **Streak**: 7 days
+
+#### User 2 (Muscle Building Goal)
+- **Username**: `jane`
+- **Password**: `user123`
+- **Email**: `jane@gymos.com`
+- **Goal**: Muscle Building (Bulk)
+- **Current Level**: Moderate
+- **Streak**: 14 days
+
+#### User 3 (Body Recomposition Goal)
+- **Username**: `mike`
+- **Password**: `user123`
+- **Email**: `mike@gymos.com`
+- **Goal**: Body Recomposition
+- **Current Level**: Pro-Level
+- **Streak**: 21 days
+
+### IT Support
+- **Username**: `ituser`
+- **Password**: `it123`
+- **Email**: `it@gymos.com`
+- **Access**: Bug tracking and management features
+
+## 📁 Project Structure
+
+```
+gym-os-mobile-android/
+├── App.js                          # Main app entry point
+├── package.json                    # Dependencies and scripts
+├── app.json                        # Expo configuration
+├── babel.config.js                 # Babel configuration
+├── .gitignore                      # Git ignore rules
+├── assets/                         # Static assets (images, fonts)
+├── src/
+│   ├── components/                 # Reusable UI components
+│   │   ├── ActionButton.js        # Primary action button
+│   │   ├── Avatar.js              # User avatar component
+│   │   ├── Badge.js               # Status/label badge
+│   │   ├── Card.js                # Content card
+│   │   ├── ListItem.js            # List item component
+│   │   ├── Modal.js               # Modal dialog
+│   │   ├── ProgressBar.js         # Progress indicator
+│   │   ├── SearchBar.js           # Search input
+│   │   ├── SecondaryButton.js     # Secondary action button
+│   │   └── StatCard.js            # Statistics card
+│   ├── context/                    # React Context providers
+│   │   └── AuthContext.js         # Authentication context
+│   ├── data/                       # Static data (mock API)
+│   │   └── data.js                # Users, workouts, meals, products, bugs, orders
+│   ├── navigation/                 # Navigation configuration
+│   │   ├── AdminStackNavigator.js # Admin screen navigation
+│   │   ├── AppNavigator.js        # Root navigation
+│   │   ├── ITStackNavigator.js    # IT screen navigation
+│   │   ├── navigationHelpers.js   # Navigation utility functions
+│   │   ├── UserStackNavigator.js # User screen navigation
+│   │   └── UserTabNavigator.js   # User bottom tab navigation
+│   ├── screens/                    # Screen components
+│   │   ├── LoginScreen.js         # Login/authentication screen
+│   │   ├── admin/                 # Admin screens
+│   │   │   ├── AdminDashboard.js
+│   │   │   ├── OrderManagementScreen.js
+│   │   │   └── UserManagementScreen.js
+│   │   ├── it/                    # IT screens
+│   │   │   ├── BugDetailScreen.js
+│   │   │   ├── BugTrackerScreen.js
+│   │   │   └── ITDashboard.js
+│   │   └── user/                  # User screens
+│   │       ├── UserDashboard.js
+│   │       ├── WorkoutLevelsScreen.js
+│   │       ├── WorkoutDetailScreen.js
+│   │       ├── MealPrepScreen.js
+│   │       ├── ProgressScreen.js
+│   │       ├── ShopScreen.js
+│   │       └── ProductDetailScreen.js
+│   └── utils/                      # Utility functions
 ```
 
-## Usage
+## 📜 Available Scripts
 
-### First Time Setup
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start the Expo development server |
+| `npm run android` | Run the app on Android device/emulator |
+| `npm run ios` | Run the app on iOS simulator (macOS only) |
+| `npm run web` | Run the app in web browser |
 
-1. **Register an Admin Account**
-   - Open the app and click "Sign Up"
-   - Create an account with admin privileges
-   - Note: You'll need to manually update the user role in MongoDB to 'admin'
+## 🧪 Testing Guide
 
-2. **Add Members**
-   - Navigate to the Members tab
-   - Click the + button to add new members
-   - Fill in member details and membership information
+For detailed testing instructions, see [TESTING.md](TESTING.md)
 
-3. **Add Equipment**
-   - Navigate to the Equipment tab
-   - Click the + button to add equipment
-   - Specify equipment type, condition, and location
+## 🚀 Quick Start Guide
 
-4. **Create Workouts**
-   - Navigate to the Workouts tab
-   - Create workout plans with exercises
-   - Assign workouts to members
+For a quick start guide for developers, see [QUICKSTART.md](QUICKSTART.md)
 
-5. **Record Payments**
-   - Go to member details
-   - Click "Record Payment"
-   - Enter payment amount and method
+## 🔍 Troubleshooting
 
-### Dashboard Overview
+### Common Issues
 
-The dashboard provides:
-- Total members count
-- Active members
-- Equipment status
-- Total workouts
-- Revenue overview
-- Recent activity
+#### App won't load on Expo Go
+- **Solution**: Ensure your device and computer are on the same network
+- **Solution**: Clear cache in Expo Go app and try again
+- **Solution**: Restart the development server with `npm start -- --clear`
 
-## API Endpoints
+#### Metro bundler issues
+- **Solution**: Reset cache: `npm start -- --reset-cache`
+- **Solution**: Clear node_modules and reinstall:
+  ```bash
+  rm -rf node_modules
+  npm install
+  ```
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
-- `PUT /api/auth/profile` - Update user profile
+#### Navigation not working
+- **Solution**: Ensure all screen components are properly exported
+- **Solution**: Check that navigation names match between navigator and screen components
 
-### Members
-- `GET /api/members` - Get all members
-- `GET /api/members/:id` - Get member by ID
-- `POST /api/members` - Create new member
-- `PUT /api/members/:id` - Update member
-- `DELETE /api/members/:id` - Delete member
-- `POST /api/members/:id/attendance` - Add attendance record
+#### AsyncStorage not persisting data
+- **Solution**: AsyncStorage data is cleared when you clear app data
+- **Solution**: Check that async/await is used correctly with AsyncStorage operations
 
-### Equipment
-- `GET /api/equipment` - Get all equipment
-- `GET /api/equipment/:id` - Get equipment by ID
-- `POST /api/equipment` - Add new equipment
-- `PUT /api/equipment/:id` - Update equipment
-- `DELETE /api/equipment/:id` - Delete equipment
+#### Styling issues
+- **Solution**: Ensure SafeAreaProvider wraps your app
+- **Solution**: Check that GestureHandlerRootView is at the root level
 
-### Workouts
-- `GET /api/workouts` - Get all workouts
-- `GET /api/workouts/:id` - Get workout by ID
-- `POST /api/workouts` - Create new workout
-- `PUT /api/workouts/:id` - Update workout
-- `DELETE /api/workouts/:id` - Delete workout
+#### Build errors on Android
+- **Solution**: Ensure Android SDK is properly installed
+- **Solution**: Check that your device/emulator has API 21+ installed
+- **Solution**: Try running `expo doctor` to diagnose issues
 
-### Payments
-- `GET /api/payments` - Get all payments
-- `GET /api/payments/:id` - Get payment by ID
-- `POST /api/payments` - Record payment
-- `PUT /api/payments/:id` - Update payment
-- `DELETE /api/payments/:id` - Delete payment
+### Getting Help
 
-### Reports
-- `GET /api/reports/dashboard` - Get dashboard statistics
-- `GET /api/reports/members` - Get member reports
-- `GET /api/reports/revenue` - Get revenue reports
-- `GET /api/reports/attendance` - Get attendance reports
+If you encounter issues not covered here:
+1. Check the Expo documentation: https://docs.expo.dev/
+2. Check React Native documentation: https://reactnative.dev/
+3. Review the error messages in the terminal and Expo DevTools
+4. Ensure all dependencies are installed correctly
 
-## Database Schema
+## 📝 Notes
 
-### User
-- name, email, password, role (admin/trainer/member), phone, avatar
+- This app uses static/mock data stored in [`src/data/data.js`](src/data/data.js)
+- In production, this should be replaced with actual API calls to a backend server
+- User authentication is currently client-side only using AsyncStorage
+- All data persists locally on the device until the app data is cleared
 
-### Member
-- userId, membershipType, membershipStartDate, membershipEndDate, membershipStatus
-- personalDetails (dateOfBirth, gender, address, emergencyContact)
-- fitnessGoals, healthConditions, assignedTrainer, attendance, payments, workouts
+## 📄 License
 
-### Equipment
-- name, category, brand, model, serialNumber, purchaseDate, purchasePrice
-- currentCondition, status, location, maintenance information
+This project is proprietary and confidential.
 
-### Workout
-- name, type, description, duration, difficulty, exercises
-- equipmentNeeded, createdBy, assignedTo, caloriesBurned, tags
+## 👥 Team
 
-### Payment
-- memberId, amount, paymentMethod, paymentStatus, paymentType
-- membershipType, period, transactionId, receiptNumber
+Gym OS Development Team
 
-## Troubleshooting
+---
 
-### Backend Issues
-- Ensure MongoDB is running
-- Check that the port 5000 is not in use
-- Verify environment variables are set correctly
-
-### Mobile App Issues
-- Clear Metro bundler cache: `npm start -- --reset-cache`
-- Reinstall dependencies: `rm -rf node_modules && npm install`
-- For Android: Clean build: `cd android && ./gradlew clean`
-- For iOS: Clean build: `cd ios && pod install`
-
-### Network Issues
-- Ensure your device/emulator can reach the backend
-- Check firewall settings
-- Verify API_BASE_URL in `src/services/api.js`
-
-## Development
-
-### Adding New Features
-
-1. Create new screen in `src/screens/`
-2. Add route in `App.js`
-3. Create API endpoints in `backend/routes/`
-4. Update database models if needed
-
-### Code Style
-
-- Follow React Native best practices
-- Use functional components with hooks
-- Implement proper error handling
-- Add loading states for async operations
-- Use consistent styling
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For issues and questions, please open an issue on the repository or contact the development team.
-
-## Acknowledgments
-
-- Built with React Native
-- Backend powered by Node.js and Express
-- Database: MongoDB
-- Inspired by modern gym management systems
+**Version**: 1.0.0  
+**Last Updated**: 2024
